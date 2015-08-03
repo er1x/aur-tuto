@@ -1,8 +1,19 @@
 <template>
-  <h2>Star Wars films</h2>
-  <ul>
-    <li repeat.for="movie of movies">
-      ${movie.title}
-    </li>
-  </ul>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#/" class="navbar-brand">Star Wars DB</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li repeat.for="route of router.navigation">
+          <a href.bind="route.href">${route.title}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <router-view></router-view>
+
+
 </template>

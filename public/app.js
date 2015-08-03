@@ -1,20 +1,10 @@
-import {inject} from 'aurelia-framework';
-import {Films} from './films';
 
-@inject(Films)
 export class App {
-  constructor(films) {
-    this.films = films;
-  }
-
-  activate() {
-    return this.films.all()
-                     .then(res => {
-                       this.movies = res.map((movie) => {
-                         return {
-                           title: movie.title
-                         };
-                       });
-                     });
+  configureRouter(config, router) {
+      this.router = router;
+      config.map([
+        {route: ['', 'films'], moduleId: 'films/list', title: 'Films', nav: true},
+        {route: ['characters'], moduleId: 'characters/list', title: 'Characters', nav: true}
+      ]);
   }
 }
